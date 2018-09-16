@@ -1,0 +1,42 @@
+<div class="row mt-5">
+  <div class="col-md-6 col-sm-12 mx-auto">
+    <div class="card card-light card-body card-light rounded-0 border-0">
+      <h3 class="card-title text-center">Login</h3>
+      <form novalidate [formGroup]="loginForm" class="container mb-4" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="text"
+            class="form-control"
+            id="email"
+            formControlName="email"
+            [ngClass]="{'is-invalid': loginForm.get('email').invalid && loginForm.get('email').dirty}"
+          >
+          <div class="invalid-feedback" *ngIf="loginForm.get('email').invalid && loginForm.get('email').dirty">
+            Please provide a valid email
+          </div>
+        </div>
+        <!-- /.form-group -->
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            formControlName="password"
+          >
+          <div class="invalid-feedback" (blur)="onBlur('password')">
+            Please provide a valid password
+          </div>
+        </div>
+        <!-- /.form-group -->
+        <button type="submit" class="btn btn-info mt-3">Login</button>
+        <button class="btn btn-info mt-3 ml-3" routerLink="/signup">Sign Up</button>
+      </form>
+    </div>
+    <!-- /.card.card-body -->
+  </div>
+  <!-- /.col-6.mx-auto -->
+</div>
+<!-- /.row -->
+

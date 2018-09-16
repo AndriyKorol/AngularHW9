@@ -1,0 +1,29 @@
+<div class="container mt-5">
+  <div class="table-responsive">
+    <table class="table">
+      <thead class="table-light">
+        <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Company name</th>
+          <th></th>
+          <th><button class="btn btn-success" routerLink="/add">+User</button></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users; let i = index">
+          <td>{{ i +1 }}</td>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.phone }}</td>
+          <td>{{ user.company.name }}</td>
+          <td><button class="btn btn-danger" (click)="onDelete(user.id)">Delete</button></td>
+          <td><button routerLink="/user/{{user.id}}" class="btn btn-primary">Edit</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- /.container -->
